@@ -1,0 +1,64 @@
+﻿@model IEnumerable<VeterinariaAppWeb.Models.Servicio>
+
+@{
+    ViewBag.Title = "ListarServicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="cont">
+    <h2>ListarServicio</h2>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idServicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.horario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaServicio)
+            </th>
+            <th></th>
+        </tr>
+
+        
+            <tr>
+                <td>
+                    Id servicio 1
+                </td>
+                <td>
+                    Nombre servicio 1
+                </td>
+                <td>
+                    Precio servicio 1
+                </td>
+                <td>
+                    descripcion servicio 1
+                </td>
+                <td>
+                    horario servicio 1
+                </td>
+                <td>
+                    fecha servicio 1
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalle", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        
+
+    </table>
+</div>
+

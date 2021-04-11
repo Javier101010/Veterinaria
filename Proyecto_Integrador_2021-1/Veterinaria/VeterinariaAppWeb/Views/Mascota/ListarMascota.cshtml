@@ -1,0 +1,87 @@
+﻿@model IEnumerable<VeterinariaAppWeb.Models.MascotaO>
+
+@{
+    ViewBag.Title = "ListarMascota";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="cont">
+    <h2>Listar Mascota</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idMascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.raza)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.color)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idTipoMasc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.talla)
+            </th>
+            <th></th>
+        </tr>
+
+ 
+            <tr>
+                <td>
+                    ID Mascota 1
+                </td>
+                <td>
+                    Nombre 1
+                </td>
+                <td>
+                    Raza 1
+                </td>
+                <td>
+                    Edad mascota 1
+                </td>
+                <td>
+                    Color mascota 1
+                </td>
+                <td>
+                    Usuario mascota 1
+                </td>
+                <td>
+                    Tipo mascota 1
+                </td>
+                <td>
+                    Estado mascota 1
+                </td>
+                <td>
+                    Peso mascota 1
+                </td>
+                <td>
+                    Talla mascota 1
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Detalle", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Borrar", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        
+
+    </table>
+</div>
+

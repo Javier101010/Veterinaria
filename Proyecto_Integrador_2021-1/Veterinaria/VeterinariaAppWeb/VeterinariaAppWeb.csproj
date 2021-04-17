@@ -124,6 +124,8 @@
     <Compile Include="Controllers\MascotaController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\ServicioController.cs" />
+    <Compile Include="Controllers\PerfilController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -133,6 +135,8 @@
     <Compile Include="Models\ProductoO.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\ServicioO.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +153,9 @@
     <Content Include="Image\Banner2.png" />
     <Content Include="Image\Banner3.png" />
     <Content Include="Image\producto1.png" />
+    <Content Include="Image\doctora.png" />
     <Content Include="Image\veterinaria_logo.png" />
+    <Content Include="Image\wallpaperVeterianria.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -177,15 +183,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Producto\ListarProducto.cshtml" />
-    <Content Include="Views\Producto\IngresarProducto.cshtml" />
-    <Content Include="Views\Mascota\ListarMascota.cshtml" />
-    <Content Include="Views\Mascota\IngresarMascota.cshtml" />
-    <Content Include="Views\Servicio\ListarServicio.cshtml" />
-    <Content Include="Views\Servicio\IngresarServicio.cshtml" />
+    <Content Include="Views\Shared\_LayoutTrabajador.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdministrador.cshtml" />
+    <Content Include="Views\Shared\_LayoutUsuario.cshtml" />
+    <Content Include="Views\Usuario\IndexTrabajador.cshtml" />
+    <Content Include="Views\Usuario\IndexUsuario.cshtml" />
+    <Content Include="Views\Perfil\IndexAdministrador.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Mascota\" />
+    <Folder Include="Views\Producto\" />
+    <Folder Include="Views\Servicio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

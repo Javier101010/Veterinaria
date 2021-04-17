@@ -6,3 +6,20 @@
 .cont{
     padding: 5%
 }
+
+.registro{
+    padding: 5%;
+    margin: 0px auto;
+    background-color: rgba(180, 180, 180, 0.5);
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+
+.regbanner{
+    width: 100%;
+    min-height: 400px;
+}

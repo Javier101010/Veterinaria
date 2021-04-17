@@ -20,12 +20,12 @@ namespace VeterinariaAppWeb.Controllers
             return View();
         }
 
-        public ActionResult IngresarProducto()
+        public ActionResult RegistrarProducto()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult IngresarProducto(ProductoO p)
+        public ActionResult RegistrarProducto(ProductoO p)
         {
             return View();
         }

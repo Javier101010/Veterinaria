@@ -7,24 +7,25 @@ using VeterinariaAppWeb.Models;
 
 namespace VeterinariaAppWeb.Controllers
 {
-    public class ServicioController : Controller
+    public class UsuarioController : Controller
     {
-        // GET: Servicio
+        // GET: Usuario
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult ListarServicio()
         {
             return View();
         }
 
-        public ActionResult RegistrarServicio()
+        public ActionResult RegistrarUsuario()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult RegistrarServicio(ServicioO s)
+        public ActionResult RegistrarUsuario(UsuarioO u)
         {
             return View();
         }

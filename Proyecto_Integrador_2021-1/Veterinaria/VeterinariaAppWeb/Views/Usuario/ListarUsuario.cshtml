@@ -1,0 +1,80 @@
+﻿@model IEnumerable<VeterinariaAppWeb.Models.Usuario>
+
+@{
+    ViewBag.Title = "ListarUsuario";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<div class="cont">
+    <h2>Lista de Usuarios</h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idRol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apePaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.apeMaterno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idRol)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apePaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.apeMaterno)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.telefono)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "EditarUsuario", new { id = item.idUsuario },
+                                                                new { @class = "glyphicon glyphicon-pencil" }) |
+                    @Html.ActionLink(" ", "DetalleUsuario", new { id = item.idUsuario },
+                                                        new { @class = "glyphicon glyphicon-plus-sign" }) |
+                    @Html.ActionLink(" ", "EliminarUsuario", new { id = item.idUsuario },
+                                                            new { @class = "glyphicon glyphicon-trash" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+

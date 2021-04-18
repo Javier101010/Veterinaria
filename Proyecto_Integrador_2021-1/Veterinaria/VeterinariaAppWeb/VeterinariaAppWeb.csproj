@@ -133,8 +133,10 @@
     <Compile Include="Models\MascotaO.cs" />
     <Compile Include="Models\Producto.cs" />
     <Compile Include="Models\ProductoO.cs" />
+    <Compile Include="Models\Rol.cs" />
     <Compile Include="Models\Servicio.cs" />
     <Compile Include="Models\ServicioO.cs" />
+    <Compile Include="Models\TipoDocumento.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,9 +188,11 @@
     <Content Include="Views\Shared\_LayoutTrabajador.cshtml" />
     <Content Include="Views\Shared\_LayoutAdministrador.cshtml" />
     <Content Include="Views\Shared\_LayoutUsuario.cshtml" />
-    <Content Include="Views\Usuario\IndexTrabajador.cshtml" />
-    <Content Include="Views\Usuario\IndexUsuario.cshtml" />
     <Content Include="Views\Perfil\IndexAdministrador.cshtml" />
+    <Content Include="Views\Perfil\IndexUsuario.cshtml" />
+    <Content Include="Views\Usuario\ListarUsuario.cshtml" />
+    <Content Include="Views\Usuario\DetalleUsuario.cshtml" />
+    <Content Include="Views\Usuario\RegistrarUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

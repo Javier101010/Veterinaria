@@ -1,0 +1,112 @@
+﻿@model VeterinariaAppWeb.Models.Usuario
+
+@{
+    ViewBag.Title = "DetalleUsuario";
+    Layout = "~/Views/Shared/_LayoutAdministrador.cshtml";
+}
+
+<div class="cont">
+    <h2>Detalle de Usuario</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.idUsuario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idUsuario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idRol)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idRol)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.apePaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.apePaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.apeMaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.apeMaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.idTipoDoc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idTipoDoc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.numeroDoc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.numeroDoc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.telefono)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.telefono)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.direccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.direccion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.correo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.correo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.contraseña)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contraseña)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.estado)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.estado)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+

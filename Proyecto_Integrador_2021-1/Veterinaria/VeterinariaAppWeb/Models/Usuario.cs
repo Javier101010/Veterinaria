@@ -32,5 +32,7 @@ namespace VeterinariaAppWeb.Models
         public string contraseña { get; set; }
         [DisplayName("ESTADO")]
         public string estado { get; set; }
+        [DisplayName("FOTO")]
+        public string foto { get; set; }
     }
 }

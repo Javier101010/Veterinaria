@@ -8,6 +8,19 @@
 <div class="cont">
     <h2>Lista de Usuarios</h2>
     <br />
+    <form action="/Usuario/ListarUsuario" method="post">
+        <div class="form-group">
+            <label>Ingresa el nombre</label>
+            <input class="form-control" type="text" name="nombre" value="" />
+        </div>
+
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="BUSCAR" />
+        </div>
+    </form>
+    <br />
+    <h3 class="alert-danger text-center">@ViewBag.mensaje</h3>
+    <br />
     <table class="table">
         <tr>
             <th>
@@ -76,5 +89,14 @@
         }
 
     </table>
+
+    <div class="pag">
+        <h6>
+            @for (int i = 0; i < ViewBag.pag; i++)
+            {
+                @Html.ActionLink((i + 1).ToString(), "ListarUsuario", new { p = i }, new { @class = "btn btn-success" })
+            }
+        </h6>
+    </div>
 </div>
 

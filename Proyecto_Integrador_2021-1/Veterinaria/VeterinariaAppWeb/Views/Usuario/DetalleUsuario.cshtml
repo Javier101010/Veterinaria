@@ -9,7 +9,10 @@
     <h2>Detalle de Usuario</h2>
     <div>
         <hr />
-        <dl class="dl-horizontal">
+        <div class="marcoDeta">
+            <img src="@Url.Content(Model.foto)" width="400" />
+        </div>
+        <dl class="marcoDeta dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.idUsuario)
             </dt>

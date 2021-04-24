@@ -23,3 +23,13 @@
     width: 100%;
     min-height: 400px;
 }
+
+/*Estilos de usuario administrador*/
+.pag{
+    text-align: center;
+}
+
+.marcoDeta{
+    width: 50%;
+    display: table-cell;
+}

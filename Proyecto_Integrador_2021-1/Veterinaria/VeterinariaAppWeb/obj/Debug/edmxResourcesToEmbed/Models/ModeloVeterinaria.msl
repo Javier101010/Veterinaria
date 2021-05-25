@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BD_VeterinariaModelStoreContainer" CdmEntityContainer="BD_VeterinariaEntities">
+    <EntitySetMapping Name="tb_mascota">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_mascota">
+        <MappingFragment StoreEntitySet="tb_mascota">
+          <ScalarProperty Name="id_mascota" ColumnName="id_mascota" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="raza" ColumnName="raza" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="peso" ColumnName="peso" />
+          <ScalarProperty Name="talla" ColumnName="talla" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_tipo_masc" ColumnName="id_tipo_masc" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_producto">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_producto">
+        <MappingFragment StoreEntitySet="tb_producto">
+          <ScalarProperty Name="id_product" ColumnName="id_product" />
+          <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+          <ScalarProperty Name="nom_producto" ColumnName="nom_producto" />
+          <ScalarProperty Name="id_tipo_produc" ColumnName="id_tipo_produc" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="serie" ColumnName="serie" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="descripcion_html" ColumnName="descripcion_html" />
+          <ScalarProperty Name="imagen1" ColumnName="imagen1" />
+          <ScalarProperty Name="imagen2" ColumnName="imagen2" />
+          <ScalarProperty Name="imagen3" ColumnName="imagen3" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_proveedor">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_proveedor">
+        <MappingFragment StoreEntitySet="tb_proveedor">
+          <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+          <ScalarProperty Name="razon_socal" ColumnName="razon_socal" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Roles">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_Roles">
+        <MappingFragment StoreEntitySet="tb_Roles">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_servicios">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_servicios">
+        <MappingFragment StoreEntitySet="tb_servicios">
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="Horario" ColumnName="Horario" />
+          <ScalarProperty Name="fecha_servicio" ColumnName="fecha_servicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo_documento">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_tipo_documento">
+        <MappingFragment StoreEntitySet="tb_tipo_documento">
+          <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo_mascota">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_tipo_mascota">
+        <MappingFragment StoreEntitySet="tb_tipo_mascota">
+          <ScalarProperty Name="id_tipo_masc" ColumnName="id_tipo_masc" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_tipo_producto">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_tipo_producto">
+        <MappingFragment StoreEntitySet="tb_tipo_producto">
+          <ScalarProperty Name="id_tipo_produc" ColumnName="id_tipo_produc" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usuario">
+      <EntityTypeMapping TypeName="BD_VeterinariaModel.tb_usuario">
+        <MappingFragment StoreEntitySet="tb_usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+          <ScalarProperty Name="Numero_doc" ColumnName="Numero_doc" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_EDITARUSUARIO" FunctionName="BD_VeterinariaModel.Store.SP_EDITARUSUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_ELIMINARUSUARIO" FunctionName="BD_VeterinariaModel.Store.SP_ELIMINARUSUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_LISTARDOCUMENTOS" FunctionName="BD_VeterinariaModel.Store.SP_LISTARDOCUMENTOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_VeterinariaModel.SP_LISTARDOCUMENTOS_Result">
+          <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTARROLES" FunctionName="BD_VeterinariaModel.Store.SP_LISTARROLES">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_VeterinariaModel.SP_LISTARROLES_Result">
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTARUSUARIOS" FunctionName="BD_VeterinariaModel.Store.SP_LISTARUSUARIOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_VeterinariaModel.SP_LISTARUSUARIOS_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="descripcion1" ColumnName="descripcion1" />
+          <ScalarProperty Name="Numero_doc" ColumnName="Numero_doc" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTAUSUARIO_ORIGINAL" FunctionName="BD_VeterinariaModel.Store.SP_LISTAUSUARIO_ORIGINAL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_VeterinariaModel.SP_LISTAUSUARIO_ORIGINAL_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="id_tipo_doc" ColumnName="id_tipo_doc" />
+          <ScalarProperty Name="Numero_doc" ColumnName="Numero_doc" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTAUSUARIOXNOMBRE" FunctionName="BD_VeterinariaModel.Store.SP_LISTAUSUARIOXNOMBRE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BD_VeterinariaModel.SP_LISTAUSUARIOXNOMBRE_Result">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="descripcion1" ColumnName="descripcion1" />
+          <ScalarProperty Name="Numero_doc" ColumnName="Numero_doc" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_NUEVOUSUARIO" FunctionName="BD_VeterinariaModel.Store.SP_NUEVOUSUARIO" />
+    <FunctionImportMapping FunctionImportName="SP_ULTIMOUSUARIO" FunctionName="BD_VeterinariaModel.Store.SP_ULTIMOUSUARIO" />
+  </EntityContainerMapping>
+</Mapping>

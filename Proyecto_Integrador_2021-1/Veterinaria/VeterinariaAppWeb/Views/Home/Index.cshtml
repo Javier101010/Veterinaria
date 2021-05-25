@@ -1,8 +1,10 @@
-﻿@{
+﻿@model VeterinariaAppWeb.Models.UsuarioO
+@{
     ViewBag.Title = "Veterinaria";
 }
 
 <section>
+    <!--Login-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
@@ -18,21 +20,50 @@
                                 <label for="exampleInputPassword1">Contraseña</label>
                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                             </div>
-                            <button type="submit" class="btn btn-primary">Ingresar
+                            <button type="submit" class="btn btn-primary">
+                                Ingresar
                             </button>
                         </form>
-                        <h4>Si no tienes una cuenta haz clic en REGISTRAR</h4>
+                        <h4>
+                            Si no tienes una cuenta haz clic en
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRegistro">Registrar</button>
+                        </h4>
                     </div>
                     <div class="col-lg-6 col d-none d-lg-block">
-                        <h3>Bienvenido!<br /> Para acceder al catalogo de servicios que poseemos
-                        ingrese con su cuenta, sino posee una puede crearla de manera rapida
-                        y sencilla.</h3>
+                        <h3>
+                            Bienvenido!<br /> Para acceder al catalogo de servicios que poseemos
+                            ingrese con su cuenta, sino posee una puede crearla de manera rapida
+                            y sencilla.
+                        </h3>
                     </div>
                 </div>
                 <img class="regbanner" src="~/Image/wallpaperVeterianria.jpg" />
             </div>
         </div>
     </div>
-    
+    <!--/Login-->
+    <!-- Modal -->
+    <div class="modal fade" id="modalRegistro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalCenterTitle">Registrate</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning" role="alert">
+                        Registrate y hazte parte de nuestro equipo.
+                    </div>
+                    @Html.Partial("_PartialRegistrar")
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Modal -->
 </section>
 

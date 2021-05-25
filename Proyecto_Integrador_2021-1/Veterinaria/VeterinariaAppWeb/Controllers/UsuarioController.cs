@@ -16,6 +16,8 @@ namespace VeterinariaAppWeb.Controllers
         SqlConnection cn = new SqlConnection(ConfigurationManager
                             .ConnectionStrings["cnx"].ConnectionString);
 
+        BD_VeterinariaEntities db = new BD_VeterinariaEntities();
+
         /*Metodos del Usuario*/
         List<UsuarioO> ListUsuarioOriginal()
         {
@@ -212,32 +214,20 @@ namespace VeterinariaAppWeb.Controllers
 
         public ActionResult ListarUsuario(int p = 0, string nombre = "")
         {
-            List<Usuario> aUsuario;
-            if (nombre == "")
-            {
-                aUsuario = ListUsuario();
-            }
-            else
-            {
-                aUsuario = ListUsuarioxNombre(nombre);
-                if(aUsuario.Count == 0)
-                {
-                    ViewBag.mensaje = "Usuario no encontrado";
-                    aUsuario = ListUsuario();
-                }
-            }
+            List<tb_usuario> lista = db.tb_usuario.ToList();
+
             int filas = 10;
-            int n = aUsuario.Count;
+            int n = lista.Count;
             int pag = n % filas > 0 ? n / filas + 1 : n / filas;
 
             ViewBag.pag = pag;
             ViewBag.p = p;
-            return View(aUsuario.Skip(p * filas).Take(filas));
+            return View(lista.Skip(p * filas).Take(filas));
         }
 
         public ActionResult DetalleUsuario(int id)
         {
-            Usuario objU = ListUsuario().Where(p => p.idUsuario == id).FirstOrDefault();
+            tb_usuario objU = ListUsuario().Where(p => p.idUsuario == id).FirstOrDefault();
             return View(objU);
         }
 

@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -129,16 +137,63 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Mascota.cs" />
-    <Compile Include="Models\MascotaO.cs" />
-    <Compile Include="Models\Producto.cs" />
-    <Compile Include="Models\ProductoO.cs" />
-    <Compile Include="Models\Rol.cs" />
-    <Compile Include="Models\Servicio.cs" />
-    <Compile Include="Models\ServicioO.cs" />
-    <Compile Include="Models\TipoDocumento.cs" />
-    <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\UsuarioO.cs" />
+    <Compile Include="Models\ModeloVeterinaria.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloVeterinaria.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloVeterinaria.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloVeterinaria.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloVeterinaria.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_LISTARDOCUMENTOS_Result.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_LISTARROLES_Result.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_LISTARUSUARIOS_Result.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_LISTAUSUARIOXNOMBRE_Result.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SP_LISTAUSUARIO_ORIGINAL_Result.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_mascota.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_producto.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_proveedor.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_Roles.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_servicios.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_tipo_documento.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_tipo_mascota.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_tipo_producto.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_usuario.cs">
+      <DependentUpon>ModeloVeterinaria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,8 +213,25 @@
     <Content Include="Image\admi.png" />
     <Content Include="Image\veterinaria_logo.png" />
     <Content Include="Image\wallpaperVeterianria.jpg" />
+    <Content Include="Models\ModeloVeterinaria.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModeloVeterinaria.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloVeterinaria.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ModeloVeterinaria.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloVeterinaria.edmx</DependentUpon>
+      <LastGenOutput>ModeloVeterinaria.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\ModeloVeterinaria.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloVeterinaria.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModeloVeterinaria.edmx.diagram">
+      <DependentUpon>ModeloVeterinaria.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -194,6 +266,7 @@
     <Content Include="Views\Usuario\DetalleUsuario.cshtml" />
     <Content Include="Views\Usuario\RegistrarUsuario.cshtml" />
     <Content Include="Views\Usuario\EditarUsuario.cshtml" />
+    <Content Include="Views\Shared\_PartialRegistrar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -213,6 +286,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

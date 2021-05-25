@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_VeterinariaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tb_mascota">
+    <Key>
+      <PropertyRef Name="id_mascota" />
+    </Key>
+    <Property Name="id_mascota" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" />
+    <Property Name="raza" Type="varchar" MaxLength="30" />
+    <Property Name="edad" Type="int" />
+    <Property Name="color" Type="varchar" MaxLength="20" />
+    <Property Name="peso" Type="float" />
+    <Property Name="talla" Type="float" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="id_tipo_masc" Type="int" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="foto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tb_producto">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="id_proveedor" Type="int" />
+    <Property Name="nom_producto" Type="varchar" MaxLength="40" />
+    <Property Name="id_tipo_produc" Type="int" />
+    <Property Name="stock" Type="int" />
+    <Property Name="serie" Type="varchar" MaxLength="30" />
+    <Property Name="marca" Type="varchar" MaxLength="40" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="descripcion_html" Type="varchar" MaxLength="200" />
+    <Property Name="imagen1" Type="varchar" MaxLength="100" />
+    <Property Name="imagen2" Type="varchar" MaxLength="100" />
+    <Property Name="imagen3" Type="varchar" MaxLength="100" />
+    <Property Name="precio" Type="float" />
+  </EntityType>
+  <EntityType Name="tb_proveedor">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="int" Nullable="false" />
+    <Property Name="razon_socal" Type="varchar" MaxLength="100" />
+    <Property Name="RUC" Type="varchar" MaxLength="11" />
+    <Property Name="Direccion" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="9" />
+    <Property Name="correo" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="tb_Roles">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="120" />
+    <Property Name="tipo" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_servicios">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="precio" Type="float" />
+    <Property Name="descripcion" Type="varchar" MaxLength="200" />
+    <Property Name="Horario" Type="varchar" MaxLength="9" />
+    <Property Name="fecha_servicio" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tb_tipo_documento">
+    <Key>
+      <PropertyRef Name="id_tipo_doc" />
+    </Key>
+    <Property Name="id_tipo_doc" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_tipo_mascota">
+    <Key>
+      <PropertyRef Name="id_tipo_masc" />
+    </Key>
+    <Property Name="id_tipo_masc" Type="int" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="30" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_tipo_producto">
+    <Key>
+      <PropertyRef Name="id_tipo_produc" />
+    </Key>
+    <Property Name="id_tipo_produc" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="30" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_rol" Type="int" />
+    <Property Name="nombre" Type="varchar" MaxLength="40" />
+    <Property Name="ap_paterno" Type="varchar" MaxLength="30" />
+    <Property Name="ap_materno" Type="varchar" MaxLength="30" />
+    <Property Name="id_tipo_doc" Type="int" />
+    <Property Name="Numero_doc" Type="varchar" MaxLength="12" />
+    <Property Name="celular" Type="varchar" MaxLength="9" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" />
+    <Property Name="correo" Type="varchar" MaxLength="60" />
+    <Property Name="Contrasenia" Type="varchar" MaxLength="16" />
+    <Property Name="estado" Type="varchar" MaxLength="20" />
+    <Property Name="foto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="fk_tbmascota_tb_tipomascota">
+    <End Role="tb_tipo_mascota" Type="Self.tb_tipo_mascota" Multiplicity="0..1" />
+    <End Role="tb_mascota" Type="Self.tb_mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_mascota">
+        <PropertyRef Name="id_tipo_masc" />
+      </Principal>
+      <Dependent Role="tb_mascota">
+        <PropertyRef Name="id_tipo_masc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbmascota_tbusuaro">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
+    <End Role="tb_mascota" Type="Self.tb_mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tb_mascota">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbproducto_tbproveedor">
+    <End Role="tb_proveedor" Type="Self.tb_proveedor" Multiplicity="0..1" />
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_proveedor">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="tb_producto">
+        <PropertyRef Name="id_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbproducto_tbtipoprod">
+    <End Role="tb_tipo_producto" Type="Self.tb_tipo_producto" Multiplicity="0..1" />
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_producto">
+        <PropertyRef Name="id_tipo_produc" />
+      </Principal>
+      <Dependent Role="tb_producto">
+        <PropertyRef Name="id_tipo_produc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbusuario_tbrol">
+    <End Role="tb_Roles" Type="Self.tb_Roles" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Roles">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbusuario_tbtipodoc">
+    <End Role="tb_tipo_documento" Type="Self.tb_tipo_documento" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_documento">
+        <PropertyRef Name="id_tipo_doc" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="id_tipo_doc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_EDITARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_USU" Type="int" Mode="In" />
+    <Parameter Name="ID_ROL" Type="int" Mode="In" />
+    <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+    <Parameter Name="APE_PAT" Type="varchar" Mode="In" />
+    <Parameter Name="APE_MAT" Type="varchar" Mode="In" />
+    <Parameter Name="TIP_DOC" Type="int" Mode="In" />
+    <Parameter Name="NUM_DOC" Type="varchar" Mode="In" />
+    <Parameter Name="TELEF" Type="varchar" Mode="In" />
+    <Parameter Name="DIRECC" Type="varchar" Mode="In" />
+    <Parameter Name="CORREO" Type="varchar" Mode="In" />
+    <Parameter Name="PASSW" Type="varchar" Mode="In" />
+    <Parameter Name="ESTADO" Type="varchar" Mode="In" />
+    <Parameter Name="FOTO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_ELIMINARUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_USU" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_LISTARDOCUMENTOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LISTARROLES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LISTARUSUARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LISTAUSUARIO_ORIGINAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LISTAUSUARIOXNOMBRE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NOM" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_NUEVOUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID_USU" Type="int" Mode="In" />
+    <Parameter Name="ID_ROL" Type="int" Mode="In" />
+    <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+    <Parameter Name="APE_PAT" Type="varchar" Mode="In" />
+    <Parameter Name="APE_MAT" Type="varchar" Mode="In" />
+    <Parameter Name="TIP_DOC" Type="int" Mode="In" />
+    <Parameter Name="NUM_DOC" Type="varchar" Mode="In" />
+    <Parameter Name="TELEF" Type="varchar" Mode="In" />
+    <Parameter Name="DIRECC" Type="varchar" Mode="In" />
+    <Parameter Name="CORREO" Type="varchar" Mode="In" />
+    <Parameter Name="PASSW" Type="varchar" Mode="In" />
+    <Parameter Name="ESTADO" Type="varchar" Mode="In" />
+    <Parameter Name="FOTO" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_ULTIMOUSUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BD_VeterinariaModelStoreContainer">
+    <EntitySet Name="tb_mascota" EntityType="Self.tb_mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_producto" EntityType="Self.tb_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_proveedor" EntityType="Self.tb_proveedor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Roles" EntityType="Self.tb_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_servicios" EntityType="Self.tb_servicios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tipo_documento" EntityType="Self.tb_tipo_documento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tipo_mascota" EntityType="Self.tb_tipo_mascota" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_tipo_producto" EntityType="Self.tb_tipo_producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_tbmascota_tb_tipomascota" Association="Self.fk_tbmascota_tb_tipomascota">
+      <End Role="tb_tipo_mascota" EntitySet="tb_tipo_mascota" />
+      <End Role="tb_mascota" EntitySet="tb_mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbmascota_tbusuaro" Association="Self.fk_tbmascota_tbusuaro">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_mascota" EntitySet="tb_mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbproducto_tbproveedor" Association="Self.fk_tbproducto_tbproveedor">
+      <End Role="tb_proveedor" EntitySet="tb_proveedor" />
+      <End Role="tb_producto" EntitySet="tb_producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbproducto_tbtipoprod" Association="Self.fk_tbproducto_tbtipoprod">
+      <End Role="tb_tipo_producto" EntitySet="tb_tipo_producto" />
+      <End Role="tb_producto" EntitySet="tb_producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbusuario_tbrol" Association="Self.fk_tbusuario_tbrol">
+      <End Role="tb_Roles" EntitySet="tb_Roles" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbusuario_tbtipodoc" Association="Self.fk_tbusuario_tbtipodoc">
+      <End Role="tb_tipo_documento" EntitySet="tb_tipo_documento" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

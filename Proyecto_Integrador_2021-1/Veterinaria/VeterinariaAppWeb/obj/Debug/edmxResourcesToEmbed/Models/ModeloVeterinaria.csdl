@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BD_VeterinariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_mascota">
+    <Key>
+      <PropertyRef Name="id_mascota" />
+    </Key>
+    <Property Name="id_mascota" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="raza" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="peso" Type="Double" />
+    <Property Name="talla" Type="Double" />
+    <Property Name="id_usuario" Type="Int32" />
+    <Property Name="id_tipo_masc" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_tipo_mascota" Relationship="Self.fk_tbmascota_tb_tipomascota" FromRole="tb_mascota" ToRole="tb_tipo_mascota" />
+    <NavigationProperty Name="tb_usuario" Relationship="Self.fk_tbmascota_tbusuaro" FromRole="tb_mascota" ToRole="tb_usuario" />
+  </EntityType>
+  <EntityType Name="tb_producto">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="Int32" Nullable="false" />
+    <Property Name="id_proveedor" Type="Int32" />
+    <Property Name="nom_producto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="id_tipo_produc" Type="Int32" />
+    <Property Name="stock" Type="Int32" />
+    <Property Name="serie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="marca" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion_html" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="imagen1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="imagen2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="imagen3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Double" />
+    <NavigationProperty Name="tb_proveedor" Relationship="Self.fk_tbproducto_tbproveedor" FromRole="tb_producto" ToRole="tb_proveedor" />
+    <NavigationProperty Name="tb_tipo_producto" Relationship="Self.fk_tbproducto_tbtipoprod" FromRole="tb_producto" ToRole="tb_tipo_producto" />
+  </EntityType>
+  <EntityType Name="tb_proveedor">
+    <Key>
+      <PropertyRef Name="id_proveedor" />
+    </Key>
+    <Property Name="id_proveedor" Type="Int32" Nullable="false" />
+    <Property Name="razon_socal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RUC" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_producto" Relationship="Self.fk_tbproducto_tbproveedor" FromRole="tb_proveedor" ToRole="tb_producto" />
+  </EntityType>
+  <EntityType Name="tb_Roles">
+    <Key>
+      <PropertyRef Name="id_rol" />
+    </Key>
+    <Property Name="id_rol" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="tipo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_usuario" Relationship="Self.fk_tbusuario_tbrol" FromRole="tb_Roles" ToRole="tb_usuario" />
+  </EntityType>
+  <EntityType Name="tb_servicios">
+    <Key>
+      <PropertyRef Name="id_servicio" />
+    </Key>
+    <Property Name="id_servicio" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="precio" Type="Double" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Horario" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="fecha_servicio" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tb_tipo_documento">
+    <Key>
+      <PropertyRef Name="id_tipo_doc" />
+    </Key>
+    <Property Name="id_tipo_doc" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_usuario" Relationship="Self.fk_tbusuario_tbtipodoc" FromRole="tb_tipo_documento" ToRole="tb_usuario" />
+  </EntityType>
+  <EntityType Name="tb_tipo_mascota">
+    <Key>
+      <PropertyRef Name="id_tipo_masc" />
+    </Key>
+    <Property Name="id_tipo_masc" Type="Int32" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_mascota" Relationship="Self.fk_tbmascota_tb_tipomascota" FromRole="tb_tipo_mascota" ToRole="tb_mascota" />
+  </EntityType>
+  <EntityType Name="tb_tipo_producto">
+    <Key>
+      <PropertyRef Name="id_tipo_produc" />
+    </Key>
+    <Property Name="id_tipo_produc" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_producto" Relationship="Self.fk_tbproducto_tbtipoprod" FromRole="tb_tipo_producto" ToRole="tb_producto" />
+  </EntityType>
+  <EntityType Name="tb_usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="Int32" Nullable="false" />
+    <Property Name="id_rol" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="ap_paterno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ap_materno" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="id_tipo_doc" Type="Int32" />
+    <Property Name="Numero_doc" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="celular" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="Contrasenia" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+    <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tb_mascota" Relationship="Self.fk_tbmascota_tbusuaro" FromRole="tb_usuario" ToRole="tb_mascota" />
+    <NavigationProperty Name="tb_Roles" Relationship="Self.fk_tbusuario_tbrol" FromRole="tb_usuario" ToRole="tb_Roles" />
+    <NavigationProperty Name="tb_tipo_documento" Relationship="Self.fk_tbusuario_tbtipodoc" FromRole="tb_usuario" ToRole="tb_tipo_documento" />
+  </EntityType>
+  <Association Name="fk_tbmascota_tb_tipomascota">
+    <End Role="tb_tipo_mascota" Type="Self.tb_tipo_mascota" Multiplicity="0..1" />
+    <End Role="tb_mascota" Type="Self.tb_mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_mascota">
+        <PropertyRef Name="id_tipo_masc" />
+      </Principal>
+      <Dependent Role="tb_mascota">
+        <PropertyRef Name="id_tipo_masc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbmascota_tbusuaro">
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="0..1" />
+    <End Role="tb_mascota" Type="Self.tb_mascota" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="tb_mascota">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbproducto_tbproveedor">
+    <End Role="tb_proveedor" Type="Self.tb_proveedor" Multiplicity="0..1" />
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_proveedor">
+        <PropertyRef Name="id_proveedor" />
+      </Principal>
+      <Dependent Role="tb_producto">
+        <PropertyRef Name="id_proveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbproducto_tbtipoprod">
+    <End Role="tb_tipo_producto" Type="Self.tb_tipo_producto" Multiplicity="0..1" />
+    <End Role="tb_producto" Type="Self.tb_producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_producto">
+        <PropertyRef Name="id_tipo_produc" />
+      </Principal>
+      <Dependent Role="tb_producto">
+        <PropertyRef Name="id_tipo_produc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbusuario_tbrol">
+    <End Role="tb_Roles" Type="Self.tb_Roles" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Roles">
+        <PropertyRef Name="id_rol" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="id_rol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_tbusuario_tbtipodoc">
+    <End Role="tb_tipo_documento" Type="Self.tb_tipo_documento" Multiplicity="0..1" />
+    <End Role="tb_usuario" Type="Self.tb_usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_tipo_documento">
+        <PropertyRef Name="id_tipo_doc" />
+      </Principal>
+      <Dependent Role="tb_usuario">
+        <PropertyRef Name="id_tipo_doc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BD_VeterinariaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_mascota" EntityType="Self.tb_mascota" />
+    <EntitySet Name="tb_producto" EntityType="Self.tb_producto" />
+    <EntitySet Name="tb_proveedor" EntityType="Self.tb_proveedor" />
+    <EntitySet Name="tb_Roles" EntityType="Self.tb_Roles" />
+    <EntitySet Name="tb_servicios" EntityType="Self.tb_servicios" />
+    <EntitySet Name="tb_tipo_documento" EntityType="Self.tb_tipo_documento" />
+    <EntitySet Name="tb_tipo_mascota" EntityType="Self.tb_tipo_mascota" />
+    <EntitySet Name="tb_tipo_producto" EntityType="Self.tb_tipo_producto" />
+    <EntitySet Name="tb_usuario" EntityType="Self.tb_usuario" />
+    <AssociationSet Name="fk_tbmascota_tb_tipomascota" Association="Self.fk_tbmascota_tb_tipomascota">
+      <End Role="tb_tipo_mascota" EntitySet="tb_tipo_mascota" />
+      <End Role="tb_mascota" EntitySet="tb_mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbmascota_tbusuaro" Association="Self.fk_tbmascota_tbusuaro">
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+      <End Role="tb_mascota" EntitySet="tb_mascota" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbproducto_tbproveedor" Association="Self.fk_tbproducto_tbproveedor">
+      <End Role="tb_proveedor" EntitySet="tb_proveedor" />
+      <End Role="tb_producto" EntitySet="tb_producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbproducto_tbtipoprod" Association="Self.fk_tbproducto_tbtipoprod">
+      <End Role="tb_tipo_producto" EntitySet="tb_tipo_producto" />
+      <End Role="tb_producto" EntitySet="tb_producto" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbusuario_tbrol" Association="Self.fk_tbusuario_tbrol">
+      <End Role="tb_Roles" EntitySet="tb_Roles" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_tbusuario_tbtipodoc" Association="Self.fk_tbusuario_tbtipodoc">
+      <End Role="tb_tipo_documento" EntitySet="tb_tipo_documento" />
+      <End Role="tb_usuario" EntitySet="tb_usuario" />
+    </AssociationSet>
+    <FunctionImport Name="SP_EDITARUSUARIO">
+      <Parameter Name="ID_USU" Mode="In" Type="Int32" />
+      <Parameter Name="ID_ROL" Mode="In" Type="Int32" />
+      <Parameter Name="NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="APE_PAT" Mode="In" Type="String" />
+      <Parameter Name="APE_MAT" Mode="In" Type="String" />
+      <Parameter Name="TIP_DOC" Mode="In" Type="Int32" />
+      <Parameter Name="NUM_DOC" Mode="In" Type="String" />
+      <Parameter Name="TELEF" Mode="In" Type="String" />
+      <Parameter Name="DIRECC" Mode="In" Type="String" />
+      <Parameter Name="CORREO" Mode="In" Type="String" />
+      <Parameter Name="PASSW" Mode="In" Type="String" />
+      <Parameter Name="ESTADO" Mode="In" Type="String" />
+      <Parameter Name="FOTO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ELIMINARUSUARIO">
+      <Parameter Name="ID_USU" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_LISTARDOCUMENTOS" ReturnType="Collection(BD_VeterinariaModel.SP_LISTARDOCUMENTOS_Result)" />
+    <FunctionImport Name="SP_LISTARROLES" ReturnType="Collection(BD_VeterinariaModel.SP_LISTARROLES_Result)" />
+    <FunctionImport Name="SP_LISTARUSUARIOS" ReturnType="Collection(BD_VeterinariaModel.SP_LISTARUSUARIOS_Result)" />
+    <FunctionImport Name="SP_LISTAUSUARIO_ORIGINAL" ReturnType="Collection(BD_VeterinariaModel.SP_LISTAUSUARIO_ORIGINAL_Result)" />
+    <FunctionImport Name="SP_LISTAUSUARIOXNOMBRE" ReturnType="Collection(BD_VeterinariaModel.SP_LISTAUSUARIOXNOMBRE_Result)">
+      <Parameter Name="NOM" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_NUEVOUSUARIO">
+      <Parameter Name="ID_USU" Mode="In" Type="Int32" />
+      <Parameter Name="ID_ROL" Mode="In" Type="Int32" />
+      <Parameter Name="NOMBRE" Mode="In" Type="String" />
+      <Parameter Name="APE_PAT" Mode="In" Type="String" />
+      <Parameter Name="APE_MAT" Mode="In" Type="String" />
+      <Parameter Name="TIP_DOC" Mode="In" Type="Int32" />
+      <Parameter Name="NUM_DOC" Mode="In" Type="String" />
+      <Parameter Name="TELEF" Mode="In" Type="String" />
+      <Parameter Name="DIRECC" Mode="In" Type="String" />
+      <Parameter Name="CORREO" Mode="In" Type="String" />
+      <Parameter Name="PASSW" Mode="In" Type="String" />
+      <Parameter Name="ESTADO" Mode="In" Type="String" />
+      <Parameter Name="FOTO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ULTIMOUSUARIO" ReturnType="Collection(Int32)" />
+  </EntityContainer>
+  <ComplexType Name="SP_LISTARDOCUMENTOS_Result">
+    <Property Type="Int32" Name="id_tipo_doc" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="estado" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SP_LISTARROLES_Result">
+    <Property Type="Int32" Name="id_rol" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="tipo" Nullable="true" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="SP_LISTARUSUARIOS_Result">
+    <Property Type="Int32" Name="id_usuario" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ap_paterno" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ap_materno" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="descripcion1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Numero_doc" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Contrasenia" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="estado" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="foto" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_LISTAUSUARIO_ORIGINAL_Result">
+    <Property Type="Int32" Name="id_usuario" Nullable="false" />
+    <Property Type="Int32" Name="id_rol" Nullable="true" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ap_paterno" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ap_materno" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="id_tipo_doc" Nullable="true" />
+    <Property Type="String" Name="Numero_doc" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Contrasenia" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="estado" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="foto" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_LISTAUSUARIOXNOMBRE_Result">
+    <Property Type="Int32" Name="id_usuario" Nullable="false" />
+    <Property Type="String" Name="descripcion" Nullable="true" MaxLength="120" />
+    <Property Type="String" Name="nombre" Nullable="true" MaxLength="40" />
+    <Property Type="String" Name="ap_paterno" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="ap_materno" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="descripcion1" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Numero_doc" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="celular" Nullable="true" MaxLength="9" />
+    <Property Type="String" Name="direccion" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="correo" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="Contrasenia" Nullable="true" MaxLength="16" />
+    <Property Type="String" Name="estado" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="foto" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>
